@@ -468,18 +468,7 @@ export class EuiInMemoryTable<T> extends Component<
   renderSearchBar() {
     const { search } = this.props;
     if (search) {
-      let searchBarProps: EuiSearchBarProps = {};
-
-      if (isEuiSearchBarProps(search)) {
-        const { onChange, ..._searchBarProps } = search;
-        searchBarProps = _searchBarProps;
-
-        if (searchBarProps.box && searchBarProps.box.schema === true) {
-          searchBarProps.box.schema = this.resolveSearchSchema();
-        }
-      }
-
-      return <EuiSearchBar onChange={this.onQueryChange} {...searchBarProps} />;
+      return <EuiSearchBar {...search} />;
     }
   }
 
